@@ -1,0 +1,19 @@
+{
+  "name": "hostile-aliens",
+  "version": "1.0.0",
+  "description": "A game based on Space Invaders that requires you to destroy the Mother SHip and save the world!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RenSormani/hostile-aliens.git"
+  },
+  "author": "Renato Sormani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RenSormani/hostile-aliens/issues"
+  },
+  "homepage": "https://github.com/RenSormani/hostile-aliens#readme"
+}
