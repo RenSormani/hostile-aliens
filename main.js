@@ -36,25 +36,25 @@ let isGameOver = false;
 let didWin = false;
 
 function gameLoop(){
-    checkGameOver();
-    setCommonStyle();    
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    displayGameOver();
-    if (!isGameOver) {
-        bulletController.draw(ctx);
-        player.draw(ctx);
-        enemiesArr.forEach((enemy) => {
-            if(bulletController.collideWith(enemy)){
-                if(enemy.health <= 0){
-                    const index = enemiesArr.indexOf(enemy);
-                    enemiesArr.splice(index, 1);
-                }
-            } else {
-            enemy.draw(ctx);
+        checkGameOver();
+        setCommonStyle();    
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        displayGameOver();
+        if (!isGameOver) {
+            bulletController.draw(ctx);
+            player.draw(ctx);
+            enemiesArr.forEach((enemy) => {
+                if(bulletController.collideWith(enemy)){
+                    if(enemy.health <= 0){
+                        const index = enemiesArr.indexOf(enemy);
+                        enemiesArr.splice(index, 1);
+                    }
+                } else {
+                enemy.draw(ctx);
             }
-    });
-}
+        });
+    }
 }
 
 function displayGameOver(){
@@ -80,7 +80,6 @@ function setCommonStyle() {
     ctx.lineJoin = "bevel";
     ctx.lineWidth = 5;
 }
-
 
 const resetGame = () => {
     window.location.reload();  
