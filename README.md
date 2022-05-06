@@ -10,7 +10,8 @@ This is an alternative take on version 1 of the Hostile Aliens game I created wi
 •	GitHub
 
 # The Functionality
-When it came to creating this updated version of the game Hostile Aliens, I took a step-by-step process as outlined below:
+When it came to creating this updated version of the game Hostile Aliens, I wanted to give it a more of a Space Invaders feel to it. The main difference came about from eliminating the random nature of the hits and adding the "bullets". I took a step-by-step process as outlined below:
+
 1.	Instead of using CSS Grid I used Canvas to set up the gameboard.
 2.	As in my original version I created a Class of EnemyShip, and then an enemy array to form multiple alien ships and then display them on screen. Each possessed their own specific key/values. I designed the enemy ships to possess a "glowing" forcefield that disappeared when they had 10 health points remaining.
 3.	Likewise I created a class of Player, which rendered Earth's defender, and all its key/values. Keypresses were created to control and limit the player's movements/actions with the directional keys. 
