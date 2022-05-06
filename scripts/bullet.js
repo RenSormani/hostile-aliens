@@ -1,3 +1,4 @@
+//create class of Bullet
 export default class Bullet {
     constructor(x, y, speed, damage){
         this.x = x;
@@ -10,12 +11,14 @@ export default class Bullet {
         this.color = "red";
     }
 
+    //draw the bullets and set direction of the bullet
     draw(ctx){
         ctx.fillStyle = this.color;
         this.y -= this.speed;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
+    //Implements collision detection between 2 boxes. Uses x and y coordinates of two boxes, then notifies sprite it has taken damage.
     collideWith(sprite){
         if(this.x < sprite.x + sprite.width &&
             this.x + this.width > sprite.x &&

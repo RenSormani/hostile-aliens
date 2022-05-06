@@ -2,6 +2,7 @@ import Player from "./player.js"
 import Enemy from "./enemy.js";
 import BulletController from "./bulletController.js";
 
+//create a game canvas
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
@@ -9,12 +10,15 @@ canvas.width = 550;
 canvas.height = 600;
 
 const bulletController = new BulletController(canvas);
+
+//create the player
 const player = new Player(
     canvas.width / 2.2, 
     canvas.height / 1.3,
     bulletController
     );
 
+// Creates an array of all ships (ie motherShip, defenceShips and attackShips) on the canvas
 const enemiesArr = [
     new Enemy (250, 40, "red", 100, "motherShip", 9),
     new Enemy (50, 140, "green", 80, "defenceShip", 10),
@@ -35,6 +39,7 @@ const enemiesArr = [
 let isGameOver = false;
 let didWin = false;
 
+//A gameLoop function to update all game logic
 function gameLoop(){
         checkGameOver();
         setCommonStyle();    
@@ -44,6 +49,7 @@ function gameLoop(){
         if (!isGameOver) {
             bulletController.draw(ctx);
             player.draw(ctx);
+//Checks enemy's health if bullet collides with enemy, then removes enemy from array if <= 0
             enemiesArr.forEach((enemy) => {
                 if(bulletController.collideWith(enemy)){
                     if(enemy.health <= 0){
@@ -57,6 +63,7 @@ function gameLoop(){
     }
 }
 
+//display function to reveal "Winner Winner" if gameOver is true
 function displayGameOver(){
     if (isGameOver) {
         let text = didWin ? "You Win" : "Winner winner!";
@@ -74,6 +81,7 @@ const checkGameOver = () => {
     }
 }
 
+//Sets the common style for all the on-screen characters
 function setCommonStyle() {
     ctx.shadowColor = "#d53";
     ctx.shadowBlur = 20;

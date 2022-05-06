@@ -1,4 +1,6 @@
 import Bullet from "./bullet.js";
+
+//Create a BulletController class. Create an array of bullets for many bullets.
 export default class BulletController{
     bullets = [];
     timeTillNextBullet = 0;
@@ -11,9 +13,11 @@ export default class BulletController{
             this.bullets.push(new Bullet(x, y, speed, damage));
             this.timeTillNextBullet = delay;
         }
-
+//This decreases the value of the time until the next bullet
         this.timeTillNextBullet--;
     }
+
+//Remove bullets from the array when they go off the screen
     draw(ctx) {
         this.bullets.forEach((bullet) => {
             if(this.isBulletOffScreen(bullet)){
@@ -24,6 +28,7 @@ export default class BulletController{
       });
     }
 
+//Query the bullets list to see if a bullet is hitting a sprite
     collideWith(sprite){
         return this.bullets.some(bullet => {
             if(bullet.collideWith(sprite)){
@@ -34,6 +39,7 @@ export default class BulletController{
         })
     }
 
+//Removes bullet once it is off the screen
     isBulletOffScreen(bullet){
         return bullet.y <= -bullet.height;
     }

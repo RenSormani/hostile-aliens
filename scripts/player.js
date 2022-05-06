@@ -22,6 +22,7 @@ export default class Player{
         this.shoot();
     }
 
+    //prevents the player from exceeding the canvas limits
     collideWithWalls() {
         //left
         if(this.x < 0){
@@ -43,6 +44,7 @@ export default class Player{
         }
     }
 
+    //Adjusts the speed/delay/damage of the bullets
     shoot(){
         if(this.shootPressed){
             console.log('shoot');

@@ -1,3 +1,4 @@
+//Create an enemy class with key/value pairs
 export default class Enemy {
     constructor( x, y, color, health, name, damagePoints) {
         this.x = x;
@@ -10,6 +11,7 @@ export default class Enemy {
         this.damagePoints = damagePoints;
     }
 
+    //draws the enemy forcefield in white. When health is less than 10, enemy loses forcefield
     draw(ctx){
         ctx.fillStyle = this.color;
         if(this.health > 10) {
@@ -21,7 +23,7 @@ export default class Enemy {
         ctx.fillRect(this.x, this.y, this.width, this.height)
         ctx.strokeRect(this.x, this.y, this.width, this.height)
 
-    // draw text
+    // draws text to display enemy health
         ctx.fillStyle = 'yellow';
         ctx.font = '14px Orbitron'
         ctx.fillText(
@@ -39,18 +41,3 @@ export default class Enemy {
         this.health = 0;
     }
 };
-
-// To make the damage on the ships random implement this code...
-// function takeDamage = () => {
-    //     const randomIndex = Math.floor(Math.random() * enemies.length);
-    //     const randomEnemy = enemies[randomIndex];
-    //     randomEnemy.takeDamage();
-
-    //     if (randomEnemy.health <= 0 && randomEnemy.name === "motherShip") {
-    //       displayGameOver();
-    //     } else if (randomEnemy.health <= 0) {
-    //       enemies.splice(randomIndex, 1);
-    //     }
-    //     die ()
-    //   };
-
